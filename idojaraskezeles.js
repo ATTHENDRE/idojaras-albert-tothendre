@@ -3,7 +3,7 @@ import NapiIdojaras from './NapiIdojaras.js';
 import fs from 'fs';
 
 
-function miidojaras() {
+export async function miidojaras() {
     const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
@@ -13,10 +13,9 @@ function miidojaras() {
 
     const d = new Date();
 
-    rl.question('Adj meg egy egész számot: ', (answer) => {answer = parseInt(answer)});
-    rl.question('Adja meg a minimum homersekletet:', (answer1) => {answer1 = parseInt(answer1)});
-    rl.question('Adja meg a maximum homersekletet:', (answer2) => {answer2 = parseInt(answer2)});
-    rl.question('Adja meg a szoveges idojarast:', (answer3) => {answer3 = answer3.toString()});
+    const answer1 = await rl.question('Adja meg a minimum homersekletet:');
+    const answer2 = await rl.question('Adja meg a maximum homersekletet:');
+    const answer3 = await rl.question('Adja meg a szoveges idojarast:');
 
     rl.close();
 
@@ -27,15 +26,16 @@ function miidojaras() {
     
 }
 
-function beolvas(){
+export function beolvas(){
 
     const fajl = fs.readFileSync('idojaras.csv', 'utf-8');
-    const sorok = fajl.trim().split(";")
+    const sorok = fajl.trim().split("\n");
 
     const idojarasok = [];
 
-    for(let i = 0; i < sorok.length; i++){
-        const adatok = sorok[i].split("\n");
+    
+    for(let i = 1; i < sorok.length; i++){
+        const adatok = sorok[i].split(";");
         const idojaras = new NapiIdojaras(adatok[0], adatok[1], adatok[2], adatok[3]);
         idojarasok.push(idojaras);
     }
@@ -44,4 +44,4 @@ function beolvas(){
 
 }
 
-export default idojaraskezeles;
+

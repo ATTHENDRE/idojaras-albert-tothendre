@@ -5,6 +5,23 @@ class NapiIdojaras{
         this.MinHomer = MinHomer;
         this.idojarasSzoveg = idojarasSzoveg;
 
+
+        // if(typeof this.hetNapja === "string"){   
+        //     throw new Error("Hét napja nem lehet szövegesen megadva!");
+        // }
+        // if(typeof this.MaxHomer === "number"){
+        //     throw new Error("Max hőmérsékletnek számnak kell lennie!");
+        // }
+        // if(typeof this.MinHomer === "number"){
+        //     throw new Error("Min hőmérsékletnek számnak kell lennie!");
+        // }
+        // if (typeof this.idojarasSzoveg === "string"){
+        //     throw new Error("Időjárás szövegesen kell megadni!");
+        // }
+
+
+
+
         if(this.hetNapja == 0){
             this.hetNapja = "Vasárnap";
         }

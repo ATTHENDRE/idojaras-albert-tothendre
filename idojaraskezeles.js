@@ -19,6 +19,7 @@ export async function miidojaras() {
 
     rl.close();
 
+
     const UjIdojaras = new NapiIdojaras(d.getDay(), answer2, answer1, answer3);
 
     console.log(UjIdojaras.toString());
